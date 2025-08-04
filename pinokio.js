@@ -42,7 +42,7 @@ module.exports = {
         let local = kernel.memory.local[path.resolve(__dirname, "start.js")];
         if (local && local.url) {
           return [{
-            popout: true,  // Open in new window
+            default: true,  // Open in new window
             icon: "fa-solid fa-rocket",
             text: "Open my-yt",
             href: local.url,  // Detected URL from start.js (e.g., http://localhost:3000)
