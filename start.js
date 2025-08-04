@@ -1,36 +1,35 @@
 module.exports = {
-  daemon: true,
+  daemon: true,  // Run as a background process
   run: [
-    // Edit this step to customize your app's launch command
     {
       method: "shell.run",
       params: {
-        venv: "env",                // Edit this to customize the venv folder path
-        env: { },                   // Edit this to customize environment variables (see documentation)
+        venv: "env",  // Use the virtual env
+        env: {  // Environment variables for Ollama integration (adjust AI_MODEL if needed)
+          AI_HOST: "http://127.0.0.1:11434",
+          AI_ENDPOINT: "/v1/chat/completions",
+          AI_MODEL: "deepseek-r1:14b",  // Or your preferred model, e.g., "llama3.1"
+          AI_TEMPERATURE: "0",
+          AI_APIKEY: ""  // Empty for local Ollama
+        },
+        path: "app",  // Relative to the app folder (my-yt)
         message: [
-          "python app.py",    // Edit with your custom commands
+          "npm start"  // Launch the server
         ],
         on: [{
-          // The regular expression pattern to monitor.
-          // When this pattern occurs in the shell terminal, the shell will return,
-          // and the script will go onto the next step.
-          "event": "/http:\/\/\\S+/",   
-
-          // "done": true will move to the next step while keeping the shell alive.
-          // "kill": true will move to the next step after killing the shell.
-          "done": true
+          // Wait for the server to log a URL (e.g., http://localhost:3000)
+          "event": "/http:\\/\\/\\S+/",
+          "done": true  // Proceed once matched, keep shell alive
         }]
       }
     },
-    // This step sets the local variable 'url'.
-    // This local variable will be used in pinokio.js to display the "Open WebUI" tab when the value is set.
     {
       method: "local.set",
       params: {
-        // the input.event is the regular expression match object from the previous step
+        // Set the app URL for Pinokio's "Open WebUI" tab
         url: "{{input.event[0]}}"
       }
-    },
+    }
   ]
-}
+};
 
