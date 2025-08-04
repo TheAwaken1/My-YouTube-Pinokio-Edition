@@ -3,7 +3,7 @@ module.exports = {
     {
       "method": "shell.run",
       "params": {
-        "message": "git clone https://github.com/christian-fei/my-yt.git app",
+        "message": "git clone https://github.com/TheAwaken1/my-yt.git app",
       }
     },
     {
