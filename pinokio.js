@@ -42,7 +42,7 @@ module.exports = {
         let local = kernel.memory.local[path.resolve(__dirname, "start.js")];
         if (local && local.url) {
           return [{
-            default: true,  // Open in new window
+            popout: true,  // Open in new window
             icon: "fa-solid fa-rocket",
             text: "Open my-yt",
             href: local.url,  // Detected URL from start.js (e.g., http://localhost:3000)
@@ -78,15 +78,7 @@ module.exports = {
         }
       } else {
         // If installed but not running: Check Ollama and prompt if needed
-        let menuItems = [];
-        if (!ollamaRunning) {
-          menuItems.push({
-            icon: "fa-solid fa-exclamation-triangle",
-            text: "Start Ollama Interactive",
-            href: "start_ollama_interactive.js",  // Script to open terminal with ollama run
-          });
-        }
-        menuItems.push({
+        let menuItems = [{
           default: true,
           icon: "fa-solid fa-power-off",
           text: "Start",
@@ -112,8 +104,44 @@ module.exports = {
           icon: "fa-solid fa-plug",
           text: "Reinstall",
           href: "install.js",
-        });
+        }, {
+          icon: "fa-solid fa-plug",
+          text: "Update",
+          href: "update.js",
+        }, {
+          icon: "fa-solid fa-plug",
+          text: "Install",
+          href: "install.js",
+        }, {
+          icon: "fa-regular fa-circle-xmark",
+          text: "Reset",
+          href: "reset.js",
+		  confirm: "Are you sure you wish to reset this app?",
+        }];
+        
+        if (!ollamaRunning) {
+          menuItems.unshift({  // Add at the beginning for visibility
+            icon: "fa-solid fa-exclamation-triangle",
+            text: "Start Ollama Interactive",
+            menu: models.map((group) => {  // Submenu for model selection
+              return {
+                icon: "fa-solid fa-circle-down",
+                text: group.name,
+                menu: group.models.map((m) => {
+                  return {
+                    icon: "fa-solid fa-circle-down",
+                    text: `${m.id} (${m.size})`,
+                    href: "start_ollama_interactive.js",
+                    params: { model: m.id }  // Pass model to script
+                  };
+                })
+              };
+            })
+          });
+        }
+        
         return menuItems;
+        
       }
     } else {
       // Not installed: Show install
