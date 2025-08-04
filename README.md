@@ -14,7 +14,7 @@ This app is designed for [Pinokio Computer](https://pinokio.computer), a 1-click
 
 1. **Install Pinokio**: Download and set up Pinokio from [pinokio.computer](https://pinokio.computer).
 2. **Add the App**:
-   - Use the one-click URI: `pinokio://https://github.com/TheAwaken1/my-yt-pinokio.git` (click in Pinokio or browser).
+   - Go to > Discover > Community scripts > look for My-YouTube (Pinikio Edition) and click install.
    - Or manually: Clone this repo into your Pinokio `api` folder (e.g., `~/.pinokio/api/my-yt-pinokio`), then restart Pinokio.
 3. **Prerequisites**:
    - **Ollama**: If not installed, Pinokio will prompt you during setup. Download from [ollama.com/download](https://ollama.com/download) and run it in the background (e.g., via `ollama serve` or system tray).
@@ -67,5 +67,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-green?style=flat-square&logo=github&logoColor=white)](https://github.com/TheAwaken1/my-yt-pinokio)
+
 
 
