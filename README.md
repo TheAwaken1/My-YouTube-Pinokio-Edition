@@ -1,6 +1,4 @@
-# My-YouTube (Pinokio Edition)
-
-![MIT License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square&logo=opensource-initiative&logoColor=white)
+# My-YouTube (Pinokio EditioN)
 
 A clean and minimal YouTube frontend, without all the ads and whistles. This is a Pinokio-optimized fork of [christian-fei/my-yt](https://github.com/christian-fei/my-yt), enhanced with seamless integration for Pinokio Computer, including automatic Ollama setup for AI video summarization. Everything runs locally and privately, with no need for external APIs unless you choose to configure them.
 
@@ -69,3 +67,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-green?style=flat-square&logo=github&logoColor=white)](https://github.com/TheAwaken1/my-yt-pinokio)
+
