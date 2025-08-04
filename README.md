@@ -27,8 +27,8 @@ This app is designed for [Pinokio Computer](https://pinokio.computer), a 1-click
 The app uses a `.env` file (included) for AI settings. Edit it in your app folder (e.g., `~/.pinokio/api/my-yt-pinokio/app/.env`) and restart for changes.
 
 ### Changing the AI Model
-- Default: `AI_MODEL=llama3` (local Ollama).
-- To change: Open `.env` and update `AI_MODEL` to your preferred model (e.g., `deepseek-r1:14b`).
+- Default: `AI_MODEL=deepseek-r1:14b` (local Ollama).
+- To change: Open `.env` and update `AI_MODEL` to your preferred model (e.g., `llama3`).
 - Restart the app in Pinokio.
 - Download models via the Pinokio menu ("Download Models" > select from list like deepseek options).
 - Note: Summarization auto-uses the model if Ollama is running in the background. No separate terminal needed—the app connects directly.
@@ -66,5 +66,6 @@ If you prefer OpenAI/Anthropic over local Ollama:
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-green?style=flat-square&logo=github&logoColor=white)](https://github.com/TheAwaken1/my-yt-pinokio)
